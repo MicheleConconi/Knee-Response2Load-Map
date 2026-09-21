@@ -1,8 +1,8 @@
 function [D_GeS] = knee_response_to_load(flexion_angle,M,F,V,varargin)
-% This function return the variation in femur position and orientation with
+% This function returns the variation in femur position and orientation with
 % respect to the values observed for the knee natural motion at the
 % considered flexion_angle.
-% Displacement are obtained as the linar combination of the displacement
+% Displacements are obtained as the linear combination of the displacements
 % induced by each load component separately.
 %
 %INPUT
@@ -19,10 +19,10 @@ function [D_GeS] = knee_response_to_load(flexion_angle,M,F,V,varargin)
 
 %OUTPUT
 % D_GeS = vector of displacement (1X6) with respect to the configuration of the
-% femur relative to the tibia at flexion_angle. The vector contain in the
+% femur relative to the tibia at flexion_angle. The vector contains in the
 % order:
 % [0, D_AA, D_IE, D_X, D_Y, D_Z]
-% Rotation are in degree, translation in mm.
+% Rotations are in degrees, translations in mm.
 % The first component is always null since load is assumed to leave flexion
 % unaffected
 
@@ -111,7 +111,7 @@ D_Fz(3) = response_to_load_fitting_model(CFz(3,:),flexion_angle,F(3));
 D_Fz(4) = response_to_load_fitting_model(CFz(4,:),flexion_angle,F(3));
 D_Fz(5) = response_to_load_fitting_model(CFz(5,:),flexion_angle,F(3));
 
-% Displacement is obtained as the linar combination of the displacement
+% Displacement is obtained as the linear combination of the displacement
 % induced by each load component separately.
 Total_displacement = D_Mx + D_My + D_Fx + D_Fy + D_Fz;
 
