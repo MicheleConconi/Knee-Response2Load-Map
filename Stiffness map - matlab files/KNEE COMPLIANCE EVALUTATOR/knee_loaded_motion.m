@@ -3,7 +3,7 @@ function [GeS,NGeS,DGeS] = knee_loaded_motion(flexion_angle_in, M_in, F_in, movi
 % the tibia anatomical reference system at the given flexion_angle under the effect of some external loads.
 % The coordinate are expressed according to a variation of the Grood and
 % Suntay notation and are evaluated as the sum of femur natural motion (computed trugh the function knee_natural_motion.m)
-% the displacement induced by external loads (computed trugh the function knee_compliance.m)
+% the displacement induced by external loads (computed trugh the function knee_response_to_load.m)
 % N.B.: all translation and rotation are expressed with respect to
 % right-hand frame, without appling any correction in the sign to account
 % for medical convention.
@@ -83,7 +83,7 @@ end
 
 % In the case we are interested in the motion of the tibia wrt the femur,
 % loads are assumed to be expressed in the femur anatomical frame. However,
-% since knee compliance is computed for the femur relative to the tibia
+% since knee response to load is computed for the femur relative to the tibia
 % with the load acting on the femur expressed in the tibia anatomical
 % reference system, in order to compute the displacement we need first to
 % convert the external loads.
@@ -106,8 +106,8 @@ if right_side == false
    F_Ext_inTib_onFem(3)=-F_Ext_inTib_onFem(3);
 end
 
-% Compute compliance
-[DGeS_FwrtT] = knee_compliance(flexion_angle_FwrtT,M_Ext_inTib_onFem,F_Ext_inTib_onFem);
+% Compute response_to_load
+[DGeS_FwrtT] = knee_response_to_load(flexion_angle_FwrtT,M_Ext_inTib_onFem,F_Ext_inTib_onFem);
 if right_side == false
    DGeS_FwrtT(2)=-DGeS_FwrtT(2);
    DGeS_FwrtT(3)=-DGeS_FwrtT(3);
