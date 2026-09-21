@@ -1,5 +1,5 @@
-# Knee Compliance Map
-A MATLAB representation of the experimentally derived map of the knee compliance. The map returns the tibio-femoral position and orientation given the flexion angle and the external load (force and torque) applied to the articulation.
+# Knee Response-to-Load Map
+A MATLAB representation of the experimentally derived map of the knee responce-to-load. The map returns the tibio-femoral position and orientation given the flexion angle and the external load (force and torque) applied to the articulation.
 
 # Table of contents <!-- omit in toc -->
 - [Introduction](#introduction)
@@ -9,7 +9,7 @@ A MATLAB representation of the experimentally derived map of the knee compliance
 - [How to use it](#how-to-use-it)
 
 ## Introduction
-This repository contains a MATLAB package that permits to use the Knee Compliance Map to obtain the tibio-femoral position and orientation of the knee, given the flexion angle and the external load (force and torque) applied to the articulation.
+This repository contains a MATLAB package that permits to use the Knee Response-to-Load Map to obtain the tibio-femoral position and orientation of the knee, given the flexion angle and the external load (force and torque) applied to the articulation.
 The spatial kinematics is obtained as the natural (passive) motion of the knee, plus the deformation induced by the applied loads.
 
 The map definition is part of a journal article currently under submission and revision.
@@ -21,7 +21,7 @@ The map is originally expressed as the motion of the femur with respect to the t
 ## Current version:
 ### V1.1
 This version contains two folders:
-- *Stiffness map - matlab files/KNEE COMPLIANCE EVALUTATOR*:
+- *Stiffness map - matlab files/KNEE Response-to-Load EVALUTATOR*:
    - contains all the MATLAB functions to run the calculation
      - _GeS_Compute_Coordinates.m_: returns the kinematics coordinates (GeS) associated to the rototranslational matrix (T).
 	 - _T_Move2Position.m_: Compute the rototranslation matrix (T) from the kinematics coordinates (GeS).
