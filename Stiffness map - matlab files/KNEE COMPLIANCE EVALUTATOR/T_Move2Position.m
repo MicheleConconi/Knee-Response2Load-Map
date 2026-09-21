@@ -2,7 +2,7 @@ function [M]=T_Move2Position(GeS,proximal)
 
 %Compute the rototranslation matrix from the GeS coordinate, rotation in degrees.
 %N.B. no change in the sing are here considered due to the medical
-%convention. Thus the sign are those of the GeS axes
+%convention. Thus the signs are those of the GeS axes
 [m,n] = size(GeS);
 
 for i=1:m
