@@ -1,15 +1,15 @@
 function [GeS,NGeS,DGeS] = knee_loaded_motion(flexion_angle_in, M_in, F_in, moving_femur,right_side,V,varargin)
 % This function returns the position and orientation of the femur with respect to
 % the tibia anatomical reference system at the given flexion_angle under the effect of some external loads.
-% The coordinate are expressed according to a variation of the Grood and
-% Suntay notation and are evaluated as the sum of femur natural motion (computed trugh the function knee_natural_motion.m)
-% the displacement induced by external loads (computed trugh the function knee_response_to_load.m)
-% N.B.: all translation and rotation are expressed with respect to
-% right-hand frame, without appling any correction in the sign to account
+% The coordinates are expressed according to a variation of the Grood and
+% Suntay notation and are evaluated as the sum of femur natural motion (computed through the function knee_natural_motion.m)
+% the displacement induced by external loads (computed through the function knee_response_to_load.m)
+% N.B.: all translations and rotations are expressed with respect to
+% right-hand frame, without applying any correction in the sign to account
 % for medical convention.
 %
 %INPUT
-% flexion_angle_in: the considered knee flexion angle, [°]. Positive values
+% flexion_angle_in: the considered knee flexion angle, [Â°]. Positive values
 %imply flexion of the femur with respect to the tibia. In the case of 
 %mapping the motion of the tibia with respect to the femur, no sing correction is expected,
 %thus the motion of the tibia with respect to the femur is
@@ -38,7 +38,7 @@ function [GeS,NGeS,DGeS] = knee_loaded_motion(flexion_angle_in, M_in, F_in, movi
 %
 %OUTPUT
 % GeS: the pose of the femur relative to the tibia at flexion_angle_in. 
-% Rotation are in degree, translation in mm. The vector contain in the
+% Rotations are in degrees, translations in mm. The vector is contained in the
 % order: [flexion_angle, AA, IE, X, Y, Z]
 % In the case of mapping the motion of the tibia with respect to the femur, 
 % no sing correction is applied
@@ -58,7 +58,7 @@ end
 
 
 % In the case we are interested in the motion of the tibia wrt the femur,
-% the sign of the flexion anlge need to be inverted since our motion is
+% the sign of the flexion angle needs to be inverted since our motion is
 % originally evaluated for the femur relative to the tibia
 if(moving_femur == false)
     flexion_angle_FwrtT = -flexion_angle_in;
@@ -70,7 +70,7 @@ end
 % angle. Natural motion
 NGeS_FwrtT = knee_natural_motion(flexion_angle_FwrtT);
 
-% Compliance is expressed for right legs. In case of a left leg, motion
+% Response to load is expressed for right legs. In case of a left leg, motion
 % needs thus to be converted
 if right_side == false
    NGeS_FwrtT(2)=-NGeS_FwrtT(2);
@@ -98,7 +98,7 @@ else
     M_Ext_inTib_onFem = M_in;
 end
 
-% Compliance is expressed for right legs. In case of a left leg, loads need
+% Response to load is expressed for right legs. In case of a left leg, loads need
 % thus to be converted
 if right_side == false
    M_Ext_inTib_onFem(2)=-M_Ext_inTib_onFem(2);
