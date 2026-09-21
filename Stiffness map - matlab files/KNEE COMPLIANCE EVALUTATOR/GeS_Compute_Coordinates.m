@@ -1,7 +1,7 @@
 function [GeS] = GeS_Compute_Coordinates(T,proximal)
 
 % return the GeS coordinated associated to the matrix T. T is in line,
-% rotation are in degrees. No change in the sing of the axes are introduced
+% rotations are in degrees. No change in the sign of the axes is introduced
 % to match medical conventions
 
 [m,n] = size(T);
@@ -19,7 +19,7 @@ for i=1:m
     end
     
     if proximal == true
-        %%FEMUR respect to tibia
+        %%FEMUR with respect to tibia
         %RotY*RotX*RotZ
         %(cycz + sysxsz)	(-cysz + sysxcz)	sycx
         %cxsz				cxcz				-sx
@@ -27,7 +27,7 @@ for i=1:m
         
         GeS(i,2)=atan2(-M(2,3),sqrt(M(3,3)^2+M(1,3)^2))* 180 / pi;
 
-        %we want the ab/adduction angle to be comprise betwee -pi/2 and pi/2 thus
+        %we want the ab/adduction angle to be comprised between -pi/2 and pi/2 thus
         if(GeS(i,2)<-90)
             GeS(i,2)= -180 - GeS(i,2);
         elseif(GeS(i,2)>90)
@@ -37,7 +37,7 @@ for i=1:m
         GeS(i,3)=atan2(M(1,3)/cos(GeS(i,2)*pi/180),M(3,3)/cos(GeS(i,2)*pi/180))* 180 / pi;
         GeS(i,1)=atan2(M(2,1)/cos(GeS(i,2)*pi/180),M(2,2)/cos(GeS(i,2)*pi/180))* 180 / pi;
     else
-        %%TIBIA respect to FEMUR
+        %%TIBIA with respect to FEMUR
         %RotZ*RotX*RotY
         %(cycz - sysxsz)	-cxsz	(sycz + cysxsz)
         %(cysz + sysxcz)	cxcz	(sysz - cysxcz)
@@ -45,7 +45,7 @@ for i=1:m
         
         GeS(i,2)=atan2(M(3,2),sqrt(M(3,3)^2+M(3,1)^2))* 180 / pi;
 
-        %we want the ab/adduction angle to be comprise betwee -pi/2 and pi/2 thus
+        %we want the ab/adduction angle to be comprised between -pi/2 and pi/2 thus
 %         if(GeS(i,2)<-90)
 %             GeS(i,2)= -180 - GeS(i,2);
 %         elseif(GeS(i,2)>90)
