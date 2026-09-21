@@ -5,7 +5,7 @@ A MATLAB representation of the experimentally derived map of the knee response t
 - [Introduction](#introduction)
 - [Reference Systen](#reference-system)
 - [Current- version](#current-version)
-  - [V1](#V1)
+  - [V1.1](#V1.1)
 - [How to use it](#how-to-use-it)
 
 ## Introduction
