@@ -38,7 +38,7 @@ function [GeS,NGeS,DGeS] = knee_loaded_motion(flexion_angle_in, M_in, F_in, movi
 %
 %OUTPUT
 % GeS: the pose of the femur relative to the tibia at flexion_angle_in. 
-% Rotations are in degrees, translations in mm. The vector is contained in the
+% Rotations are in degrees, translations in mm. The vector contains in
 % order: [flexion_angle, AA, IE, X, Y, Z]
 % In the case of mapping the motion of the tibia with respect to the femur, 
 % no sing correction is applied
