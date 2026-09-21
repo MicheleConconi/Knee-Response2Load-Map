@@ -1,10 +1,10 @@
 function [GeS] = knee_natural_motion(flexion_angle,V,varargin)
 % Simply return the position and orientation of the femur with respect to
 % the tibia anatomical reference system at the given flexion_angle.
-% The coordinate are expressed according to a variation of the Grood and 
+% The coordinates are expressed according to a variation of the Grood and 
 % Suntay notation and are evaluated through fourth order polinomial
 
-% V is volume of the femur of the current subject under analysis [mm^3]. This input
+% V is the volume of the femur of the current subject under analysis [mm^3]. This input
 % is set to a default value (Volume of the map reference femur) if not
 % given as input. In that case, the result given as output is not scaled
 % to the specific subject
