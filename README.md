@@ -3,7 +3,7 @@ A MATLAB representation of the experimentally derived map of the knee response t
 
 # Table of contents <!-- omit in toc -->
 - [Introduction](#introduction)
-- [Reference Systen](#reference-system)
+- [Reference System](#reference-system)
 - [Current- version](#current-version)
   - [V1.1](#V1.1)
 - [How to use it](#how-to-use-it)
@@ -36,6 +36,10 @@ This version contains two folders:
    For example:
    ![Natural motion fitting](./Figures/Natural_motion.png)
    ![Fx fitting surface](./Figures/Fx.png)
+ - *Elaboration-Leg1*:
+ - contains the 3D elaborations of the reference Leg (Leg1), used in the map definition
+     - _Femur_bone.stl_: stl file containing the 3D representation of the Femur of Leg1.
+	 - _Tibia_Fibula_bone.stl_: stl file containing the 3D representation of Tibia and Fibula of Leg1.
    
 ## How to use it
 To use the map it is sufficient to focus on the function script ***knee_loaded_motion.m***. In brief:
